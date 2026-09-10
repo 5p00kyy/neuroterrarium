@@ -4,9 +4,9 @@ Date: 2026-09-11, Australia/Brisbane.
 
 ## Status
 
-**Implementation and automated gates passed. Direct visual inspection is blocked, so the complete Milestone 1 acceptance gate is not signed off.**
+**Milestone 1 passed implementation, automated, browser, and direct visual review gates.**
 
-The image-viewing tool rejected project-local screenshot paths as outside its allowed media directories. A loopback image URL was also rejected. The generic file reader returned image metadata but no inspectable pixels in this run. No permission to write outside the project was granted, and screenshots were not copied into OpenClaw directories. Screenshot capture is evidence of retained renders, not a substitute for direct visual review. Review artifacts/desktop-verified.png and artifacts/provenance.png in an authorised image surface to close this gate.
+The main-seat review staged temporary private copies of the retained screenshots into an authorised image surface, directly inspected the desktop, provenance, and compact layouts, then removed the staged copies. The terrarium rendered correctly, the visual hierarchy and contrast were coherent, scientific caveats were conspicuous, the provenance modal was legible, and the 390 px layout remained usable without obvious clipping or overflow.
 
 ## Verified implementation revision
 
@@ -46,7 +46,7 @@ npm run test:browser
 | Deterministic recording                          | 1,106 ticks, 11.06 simulated seconds, seed 42                      |
 | Replay and imported replay                       | All recorded neural/body outputs, final state and training matched |
 | Tampered output import                           | Rejected; current run retained                                     |
-| Direct desktop visual inspection                 | BLOCKED by image-path access; not claimed                          |
+| Direct visual inspection                         | Pass: desktop, provenance modal, and 390 px compact captures       |
 
 The browser pass exercises actual soil raycasting, all five sensory tools, pause, single-step, speed, population silence, readout training, independent mode selection, overlay, provenance, JSON download, replay, reset, JSON import, tamper rejection and seed validation. The unit suite additionally checks exact matched-graph statistics across four seeds, LIF threshold/reset/refractory/silence, silent baseline, complete stimulus-to-movement propagation, Control separation, temporal pulse expiry, obstacle rejection, readout-only learning, deterministic replay with same-tick events, manifest validation and adapter aggregation/ID validation.
 
@@ -86,4 +86,4 @@ No remote was created. No dataset was downloaded. No deployment or external mess
 
 ## Next scientific gate
 
-After visual sign-off, use the bounded [MaleCNS subset ingestion gate](INGESTION.md): verify licence/attribution and release schema, checksum a small authorised subset, resolve signs explicitly, independently validate CSR totals and reference circuit outputs, and benchmark that subset with replay and matched controls before scaling.
+Use the bounded [MaleCNS subset ingestion gate](INGESTION.md): verify licence/attribution and release schema, checksum a small authorised subset, resolve signs explicitly, independently validate CSR totals and reference circuit outputs, and benchmark that subset with replay and matched controls before scaling.
