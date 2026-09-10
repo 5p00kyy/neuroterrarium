@@ -2,7 +2,7 @@
 
 > An open, inspectable laboratory for embodied connectome intelligence.
 
-Status: local foundation only. No public repository or deployment has been authorised yet.
+Status: public repository authorised and created at https://github.com/5p00kyy/neuroterrarium. Deployment and releases remain unauthorised.
 
 ## Product thesis
 
@@ -138,4 +138,4 @@ The user loop:
 - GPU/WebGPU backend.
 - NeuroMechFly integration.
 - Physical robot control.
-- Public GitHub repository, branding finalization, hosted demo, announcements, or outreach.
+- Hosted demo, formal release, announcements, or outreach.
