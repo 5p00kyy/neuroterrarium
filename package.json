@@ -1,0 +1,35 @@
+{
+  "name": "neuroterrarium",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:browser": "playwright test",
+    "format": "prettier --write src tests *.ts package.json tsconfig.json index.html README.md docs",
+    "format:check": "prettier --check src tests *.ts package.json tsconfig.json index.html README.md docs"
+  },
+  "dependencies": {
+    "@react-three/drei": "10.7.0",
+    "@react-three/fiber": "9.3.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0",
+    "@types/node": "22.18.0",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.0",
+    "@types/three": "0.180.0",
+    "@vitejs/plugin-react": "5.0.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.2",
+    "vite": "7.1.0",
+    "vitest": "3.2.0"
+  }
+}
