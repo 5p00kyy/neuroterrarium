@@ -196,6 +196,7 @@ export function App() {
       if (f.size > 80_000_000)
         throw new Error("File exceeds 80 MB import limit");
       const data: unknown = JSON.parse(await f.text());
+      setHistory([]);
       send({ type: "replay", manifest: data });
       setNotice("Verifying imported event log…");
       setError(false);
@@ -328,9 +329,7 @@ export function App() {
                         : "MATCHED EDGE SHUFFLE"}
                   </small>
                 </span>
-                <span className="scale-bar">
-                  1 arena unit <b />
-                </span>
+                <span className="scale-bar">Arena Ø 10 u · demo units</span>
               </div>
               <div className="stage-help">
                 Click soil to place{" "}
@@ -669,6 +668,7 @@ export function App() {
           </div>
           <button
             onClick={() => {
+              setHistory([]);
               send({ type: "replay" });
               setNotice("Verifying replay…");
             }}

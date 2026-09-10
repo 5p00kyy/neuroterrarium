@@ -138,6 +138,8 @@ describe("scientific contracts", () => {
     const m = new Experiment(42).manifest({ commit: "test", dirty: false });
     for (const patch of [
       { seed: -1 },
+      { dataset: { ...m.dataset, synthetic: false } },
+      { parameters: { ...m.parameters, arenaRadius: 99 } },
       { ticks: 99999999 },
       { model: { version: "other" } },
       { events: [{ tick: 0, action: { type: "execute" } }] },

@@ -49,7 +49,8 @@ self.onmessage = (event: MessageEvent<Request>) => {
       const result = replay(original);
       const match =
         JSON.stringify(result.outputs) === JSON.stringify(original.outputs) &&
-        JSON.stringify(result.frame()) === JSON.stringify(original.final);
+        JSON.stringify(result.frame()) === JSON.stringify(original.final) &&
+        JSON.stringify(result.training) === JSON.stringify(original.training);
       if (!match)
         throw new Error(
           "Replay mismatch: imported outputs or final state do not match the event log. Current run retained.",
