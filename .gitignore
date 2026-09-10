@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+# Upstream connectome datasets are downloaded separately
+data/raw/
+data/processed/
+*.parquet
+*.h5
+*.hdf5
