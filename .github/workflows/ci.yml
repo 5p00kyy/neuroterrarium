@@ -68,3 +68,4 @@ jobs:
             artifacts/desktop-*.png
             artifacts/mobile.png
             artifacts/provenance.png
+            artifacts/visual/

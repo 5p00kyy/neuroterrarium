@@ -1281,3 +1281,279 @@ footer i {
     transition: none !important;
   }
 }
+
+/* Visual instrument pass: organism, causal flow and deliberate comparison. */
+.first-experiment {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 14px 18px;
+  margin: 0 0 20px;
+  border-top: 1px solid #3a4436;
+  border-bottom: 1px solid #3a4436;
+  background: #182019;
+}
+.first-experiment > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 1;
+  color: #9da893;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.first-experiment b {
+  font:
+    20px Georgia,
+    serif;
+  color: #b9c99c;
+}
+.first-experiment strong {
+  display: block;
+  color: #e1e5d4;
+  font-weight: 500;
+}
+.first-experiment button {
+  background: #c1d59f;
+  color: #1d2a16;
+  border-color: #c1d59f;
+}
+.camera-controls {
+  position: absolute;
+  right: 16px;
+  top: 50px;
+  display: flex;
+  gap: 4px;
+  background: #121b16d9;
+  padding: 4px;
+  border: 1px solid #56604b5c;
+  border-radius: 6px;
+}
+.camera-controls button {
+  font-size: 10px;
+  background: transparent;
+  border-color: transparent;
+  padding: 7px 9px;
+}
+.camera-controls button[aria-pressed="true"] {
+  color: #e6ecd9;
+  background: #56644455;
+  border-color: #81956c55;
+}
+.stimulus-contract {
+  padding: 11px 18px;
+  border-bottom: 1px solid #2c382c;
+  color: #98a58d;
+  font-size: 10px;
+  line-height: 1.65;
+}
+.stimulus-contract strong {
+  color: #cfccad;
+}
+.comparison-note {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 13px 18px;
+  background: #1d271d;
+  border-bottom: 1px solid #344031;
+}
+.comparison-note strong {
+  font-size: 13px;
+  min-width: 70px;
+}
+.comparison-note span {
+  font-size: 10px;
+  color: #abb89d;
+  line-height: 1.55;
+}
+.neural-flow {
+  padding: 20px 20px 12px;
+  background:
+    radial-gradient(ellipse at 50% 50%, #27342666, transparent 70%), #111b15;
+  border-bottom: 1px solid #394334;
+}
+.flow-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.flow-heading .eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 8px;
+}
+.flow-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #dfe4cf;
+}
+.flow-count {
+  font:
+    9px ui-monospace,
+    monospace;
+  color: #c5d3a4;
+  white-space: nowrap;
+}
+.neural-flow svg {
+  display: block;
+  width: 100%;
+  max-height: 310px;
+  margin-top: 12px;
+  overflow: visible;
+}
+.flow-column {
+  font:
+    8px Arial,
+    sans-serif;
+  letter-spacing: 0.7px;
+  fill: #929f87;
+}
+.flow-node-label {
+  font:
+    10px Arial,
+    sans-serif;
+  fill: #dbe2cb;
+}
+.flow-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 9px;
+  color: #93a089;
+  line-height: 1.6;
+}
+.flow-foot i {
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  background: #a9c981;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.flow-foot .inhibitory {
+  background: #d0a179;
+  margin-left: 10px;
+}
+@media (max-width: 900px) {
+  .first-experiment {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .first-experiment > div {
+    min-width: 120px;
+  }
+  .first-experiment button {
+    width: 100%;
+  }
+  .flow-heading h2 {
+    font-size: 17px;
+  }
+  .flow-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+@media (max-width: 560px) {
+  .first-experiment {
+    padding: 12px;
+    gap: 10px;
+  }
+  .first-experiment > div {
+    min-width: 0;
+    align-items: start;
+    font-size: 9px;
+    gap: 5px;
+  }
+  .first-experiment b {
+    font-size: 15px;
+  }
+  .camera-controls {
+    top: 43px;
+    right: 8px;
+  }
+  .camera-controls button {
+    font-size: 9px;
+    padding: 6px;
+  }
+  .comparison-note {
+    align-items: start;
+    gap: 8px;
+    padding: 12px;
+  }
+  .comparison-note strong {
+    min-width: 64px;
+    font-size: 11px;
+  }
+  .neural-flow {
+    padding: 14px 10px;
+  }
+  .flow-column {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+  .flow-foot {
+    font-size: 9px;
+  }
+  .stimulus-contract {
+    padding: 10px 12px;
+  }
+  .neural-flow svg {
+    min-height: 150px;
+  }
+  .first-experiment strong {
+    font-size: 10px;
+  }
+}
+
+.flow-compact {
+  display: none;
+}
+@media (max-width: 560px) {
+  .neural-flow svg {
+    display: none;
+  }
+  .flow-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 18px 0;
+  }
+  .flow-compact > div {
+    padding: 10px;
+    background: #1a251c;
+    border: 1px solid #3d4b35;
+    border-radius: 5px;
+    font-size: 11px;
+  }
+  .flow-compact strong {
+    float: right;
+    font:
+      10px ui-monospace,
+      monospace;
+    color: #b9c99c;
+  }
+  .population-dots {
+    display: flex;
+    gap: 7px;
+    margin-top: 10px;
+  }
+  .population-dots i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #42513b;
+  }
+  .population-dots i.firing {
+    background: #dfedb2;
+  }
+  .flow-compact p {
+    grid-column: 1/-1;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}

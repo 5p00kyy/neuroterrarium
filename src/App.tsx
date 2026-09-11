@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Scene, COLORS } from "./Scene";
+import { NeuralFlow } from "./NeuralFlow";
 import {
   Experiment,
   MODES,
@@ -108,7 +109,8 @@ export function App() {
     [error, setError] = useState(false),
     [ready, setReady] = useState(false),
     [inspector, setInspector] = useState("fixture"),
-    [trainingBusy, setTrainingBusy] = useState(false);
+    [trainingBusy, setTrainingBusy] = useState(false),
+    [closeView, setCloseView] = useState(false);
   const send = (m: Request) => worker.current?.postMessage(m);
   useEffect(() => {
     const w = new Worker(new URL("./sim/worker.ts", import.meta.url), {
@@ -219,7 +221,7 @@ export function App() {
         <div className="top-meta">
           <span className="local-dot" /> LOCAL / OFFLINE READY
           <span className="divider" />
-          <span>MILESTONE 01</span>
+          <span>RESEARCH PREVIEW</span>
         </div>
         <button className="quiet" onClick={() => inspect("fixture")}>
           Provenance <span>↗</span>
@@ -237,7 +239,9 @@ export function App() {
           <div>
             <div className="eyebrow">EXPERIMENT 001 / SENSORIMOTOR SANDBOX</div>
             <h1>From stimulus to movement.</h1>
-            <p>Observe a spiking circuit in a small, inspectable world.</p>
+            <p>
+              A fly-inspired body. An inspectable circuit. Every claim in view.
+            </p>
           </div>
           <button className="fixture-badge" onClick={() => inspect("fixture")}>
             <span className="tiny-grid">⠿</span>
@@ -249,6 +253,43 @@ export function App() {
               <small>Not MaleCNS. No measured anatomy.</small>
             </span>
             <span>ⓘ</span>
+          </button>
+        </section>
+        <section
+          className="first-experiment"
+          aria-label="Start your first experiment"
+        >
+          <div>
+            <b>01</b>
+            <span>
+              <strong>Stimulate</strong>Place light, then run.
+            </span>
+          </div>
+          <div>
+            <b>02</b>
+            <span>
+              <strong>Trace</strong>Watch spikes become motion.
+            </span>
+          </div>
+          <div>
+            <b>03</b>
+            <span>
+              <strong>Compare</strong>Fixed / trained / shuffled.
+            </span>
+          </div>
+          <button
+            disabled={!ready}
+            onClick={() => {
+              setTool("light");
+              action({ type: "stimulus", tool: "light", x: 2, z: 1 });
+              send({ type: "run", running: true, speed: 1 });
+              setSpeed(1);
+              setNotice(
+                "Light placed. Follow the circuit projection below the arena; compare modes without resetting.",
+              );
+            }}
+          >
+            Start with light ↗
           </button>
         </section>
         <div className="lab-layout">
@@ -314,9 +355,24 @@ export function App() {
                 frame={frame}
                 mode={mode}
                 compare={compare}
+                close={closeView}
                 tool={tool}
                 onPlace={place}
               />
+              <div className="camera-controls" aria-label="Camera framing">
+                <button
+                  aria-pressed={!closeView}
+                  onClick={() => setCloseView(false)}
+                >
+                  Arena
+                </button>
+                <button
+                  aria-pressed={closeView}
+                  onClick={() => setCloseView(true)}
+                >
+                  Inspect fly
+                </button>
+              </div>
               <div className="stage-top">
                 <span>
                   <span
@@ -324,7 +380,11 @@ export function App() {
                   />
                   {running ? "SIMULATION RUNNING" : "SIMULATION PAUSED"}
                 </span>
-                <span>ARENA A / TOP-OBLIQUE</span>
+                <span>
+                  {closeView
+                    ? "SPECIMEN / MACRO VIEW"
+                    : "ARENA A / TOP-OBLIQUE"}
+                </span>
               </div>
               <div className="toolbox" aria-label="Sensory tools">
                 {TOOLS.map((t) => (
@@ -417,6 +477,30 @@ export function App() {
                 ↺ Reset
               </button>
             </div>
+            <div className="stimulus-contract" data-testid="stimulus-contract">
+              <strong>{TOOLS.find((t) => t.id === tool)?.label} /</strong>{" "}
+              {tool === "light"
+                ? "Dashed bearing to the reference body; distance and left/right angle drive current. Cone is a source marker, not ray-traced sensing."
+                : tool === "odor"
+                  ? "Contours sample the model's distance envelope. Moving motes illustrate the static field, not simulated diffusion."
+                  : tool === "loom"
+                    ? "Global rising threat current for 1 s. Sphere size follows stimulus age; placement does not change its drive."
+                    : tool === "touch"
+                      ? "Global 200 ms threat pulse. The ring marks the event, not a localized contact simulation."
+                      : "Solid radius 0.72 u blocks body centers. Outer ring is the 1.4 u reference-body threat threshold."}
+            </div>
+            <div className="comparison-note">
+              <strong>{mode}</strong>
+              <span>
+                {mode === "Biological"
+                  ? "Fixed synthetic wiring. No training."
+                  : mode === "Adaptive"
+                    ? "Same recurrent wiring. Only 49 readout coefficients can change."
+                    : "A seeded degree-, sign- and weight-matched edge shuffle."}{" "}
+                All three receive the Biological body's sensory stream.
+              </span>
+            </div>
+            <NeuralFlow frame={frame} mode={mode} seed={activeSeed} />
             <div className="signals">
               <section>
                 <h3>

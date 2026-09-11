@@ -12,7 +12,9 @@ Milestone 1 connects stimulus → spiking network → motor output → procedura
 
 ![NeuroTerrarium instrument showing the synthetic miniature fixture and provenance-conscious comparison](docs/assets/terrarium.webp)
 
-The screenshot shows the synthetic browser laboratory, not the imported anatomy. Fresh Phase 2 capture is retained for direct visual review; automated workflow checks alone are not visual acceptance.
+The macro capture shows the original fly-inspired avatar in the synthetic laboratory, not imported anatomy. The 48-neuron fixture is scaffolding, not the full-scale product. Direct visual acceptance remains pending; automated browser checks do not establish art-direction quality.
+
+The visual pass adds articulated legs, faceted eyes, veined wings, model-labelled stimulus fields, a macro camera, guided onboarding and spike-linked signed circuit projection. Compact layouts use population tiles instead of a shrunken network diagram. [Full-scale architecture and visual truth boundaries](docs/FULL_SCALE_DESIGN.md) describe the offline compiler, aggregated-edge runtime, bounded activity stream and future multiscale/morphology views.
 
 ## Primary Phase 2 evidence
 
@@ -53,8 +55,8 @@ Both servers bind to loopback. Stop with Ctrl+C. No persistent infrastructure is
 
 ## A two-minute experiment
 
-1. Keep **Biological** selected. This means fixed **demo** topology, not measured anatomy. The empty arena is silent and still.
-2. Select **Light**, then click the soil or use **Place preset** (keyboard-accessible, +2/+1 arena units). Press **Run**. Watch neural populations, motor traces, path and cumulative spikes. Drag to orbit or scroll to examine the procedural fly.
+1. Use **Start with light** for the guided entry, or keep **Biological** selected. This means fixed **demo** topology, not measured anatomy. The empty arena is silent and still.
+2. Select **Light**, then click the soil or use **Place preset** (keyboard-accessible, +2/+1 arena units). Press **Run**. Watch neural populations, motor traces, path and cumulative spikes. Choose **Inspect fly** for macro framing; drag to orbit or scroll to examine the procedural fly.
 3. Try **Odour**, **Loom**, **Touch** or **Obstacle**. One source per tool is retained; placement replaces that source. Touch lasts 20 ticks, looming lasts 100. Clear stimuli without resetting to observe decay.
 4. Silence or stimulate a named demo population. Perturbations apply equally to all specimens and never edit recurrent edges.
 5. Switch to **Control**, or enable **Overlay all**. Three independent networks are always simulated with identical sensory input yoked to the Biological reference body.
