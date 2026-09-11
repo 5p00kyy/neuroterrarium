@@ -1,10 +1,35 @@
 # NeuroTerrarium
 
+[![CI workflow](docs/assets/ci.svg)](https://github.com/5p00kyy/neuroterrarium/actions/workflows/ci.yml) [![Repository](docs/assets/repository.svg)](https://github.com/5p00kyy/neuroterrarium) [![Code MIT](docs/assets/license.svg)](LICENSE)
+
+The CI badge links the workflow, not an asserted passing hosted run. Hosted CI remains a review/merge gate.
+
 **An open, inspectable laboratory for embodied connectome intelligence.**
 
 Milestone 1 connects stimulus → spiking network → motor output → procedural fly movement in a local 3D terrarium. It is a scientific-instrument vertical slice, not a biological fidelity result.
 
-> **Synthetic fixture, not MaleCNS.** All 48 neurons, 192 signed edges, six populations, LIF constants and sensor/motor mappings are demo-only. No real connectome dataset is downloaded, bundled or running.
+> **Synthetic fixture, not MaleCNS.** All 48 neurons, 192 signed edges, six populations, LIF constants and sensor/motor mappings are demo-only. No real connectome runs in the browser. Phase 2 separately verified a tiny official MaleCNS import under ignored local data paths; no upstream raw data are bundled in Git.
+
+![NeuroTerrarium instrument showing the synthetic miniature fixture and provenance-conscious comparison](docs/assets/terrarium.webp)
+
+The screenshot shows the synthetic browser laboratory, not the imported anatomy. Fresh Phase 2 capture is retained for direct visual review; automated workflow checks alone are not visual acceptance.
+
+## Primary Phase 2 evidence
+
+A delayed-cue cross-context benchmark evaluates 20 independently shuffled matched graphs with disjoint train/validation/test streams, readout-only fitting, and four conditions:
+
+| Condition         | Fixture test MSE, mean ± SD | Matched Control test MSE, mean ± SD |
+| ----------------- | --------------------------- | ----------------------------------- |
+| Full graph        | 0.382233 ± 0.019242         | 0.383745 ± 0.020251                 |
+| No recurrence     | 0.371280 ± 0.019540         | 0.371280 ± 0.019540                 |
+| Visual-L ablation | 0.563159 ± 0.045112         | 0.559340 ± 0.049624                 |
+| Zero features     | 0.640000 ± 0                | 0.640000 ± 0                        |
+
+**The full fixture and shuffled graphs are nearly tied, and removing recurrence is slightly better here.** This validates a reproducible method, not a biological topology advantage or a closed-loop navigation learner. The in-app calibration is only an illustration. [Protocol, per-seed export and interpretation](docs/BENCHMARK.md).
+
+- **Verified official import:** 159 bodies, 128 pairs, 105,268 raw synapses, from 3.69 MB of anonymous official range reads. Counts, transmitter fields and checksums independently verified offline. Not a complete circuit and not loaded into the app. [Ingestion evidence](docs/INGESTION.md).
+- **Measured synthetic scale:** 166,700 neurons / 5,334,400 edges, 61.75 instrumented CPU ticks/s in the baseline (55.23 with CPU sampling) on the measured Xeon host. Not MaleCNS and not a browser/end-to-end benchmark. [Profile method and limits](docs/PERFORMANCE.md).
+- **CI:** pinned read-only GitHub Actions workflow, local or managed Chromium, bounded scientific tests and retained evidence. No deployment. [Contributing](CONTRIBUTING.md).
 
 ## Run locally
 
@@ -59,7 +84,7 @@ Control training is a separate diagnostic using the same calibration protocol. I
 - **src/App.tsx:** DOM instrument controls, live signals, comparative ledger and provenance inspector.
 - **src/sim/adapter.ts:** validated small-table conversion interface for a future real-data importer. Not a production-scale importer or an enabled dataset upload path.
 
-CSR provides a credible backend boundary, not proof of full-scale performance. Full-spike recording, clone-based worker snapshots, the Map-based converter and Set-based shuffle are intentionally fixture-scale. [The next ingestion gate](docs/INGESTION.md) describes the work needed before 166,700 neurons or millions of aggregated edges can be claimed.
+CSR provides a credible backend boundary, not proof of full-scale performance. Full-spike recording, clone-based worker snapshots, the Map-based converter and Set-based shuffle are intentionally fixture-scale. [The verified ingestion boundary and next scientific gate](docs/INGESTION.md) separates the verified synthetic scale profile from the still-unverified full real-data simulation.
 
 ## Verification
 
@@ -67,11 +92,13 @@ CSR provides a credible backend boundary, not proof of full-scale performance. F
 npm run typecheck
 npm test
 npm run format:check
+npm run benchmark
+npm run profile
 npm run build
 npm run test:browser
 ```
 
-Browser tests use an existing Chromium at /usr/bin/chromium by default. Override with CHROMIUM_PATH pointing to your installed Chromium. No browser or dataset download runs automatically. Test launch is headless software WebGL and uses a project-local temporary directory. The test runner starts and stops its own loopback production preview.
+Browser tests use an existing Chromium at /usr/bin/chromium locally, or Playwright-managed Chromium in CI. Override with CHROMIUM_PATH pointing to your installed Chromium. No browser or dataset download runs automatically. Test launch is headless software WebGL and uses a project-local temporary directory. The test runner starts and stops its own loopback production preview.
 
 The critical test places a stimulus through a real 3D raycast, checks movement, pause and single-step, exercises all tools, perturbation, calibration and mode comparison, inspects provenance, exports/imports an experiment, verifies every tick and rejects tampering. Networking is disabled after the initial load. A compact 390 px viewport test checks keyboard placement and overflow.
 
@@ -83,10 +110,10 @@ Review artifacts are intentionally ignored under **artifacts/**:
 - browser-console.json: console errors, warnings, external-request log and calibration evidence
 - browser-results.json and browser-runs/: machine-readable test result and failure traces
 
-The code commit and dirty-state marker are embedded at build time. Build from a clean commit for release-quality provenance. Browser-generated artifacts are not committed. See docs/VERIFICATION.md for the actual milestone gate status, including any remaining blocker.
+The code commit and dirty-state marker are embedded at build time. Build from a clean commit for release-quality provenance. Raw browser-run artifacts are ignored; one optimized screenshot is committed under docs/assets for review. See docs/PHASE2_VERIFICATION.md for this phase’s exact gate status and docs/VERIFICATION.md for the historical Milestone 1 review.
 
 ## Attribution and licence
 
 Original code and procedural geometry: [MIT](LICENSE). Scientific citations and dependency attribution: [docs/ATTRIBUTION.md](docs/ATTRIBUTION.md). Future MaleCNS ingestion must preserve CC-BY 4.0 attribution and verify the release and source checksums. No code was copied from the scientific reference repositories.
 
-No remote, deployment, public release, full-connectome download, WebGPU backend or biomechanical integration is part of this milestone.
+The source repository is public. This phase does not deploy, publish a package, create a release, download the full connectome, add WebGPU or claim biomechanical integration.

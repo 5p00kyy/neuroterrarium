@@ -1,0 +1,70 @@
+name: CI
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.cache/ms-playwright
+      PLAYWRIGHT_CHROMIUM: managed
+      npm_config_cache: ${{ github.workspace }}/.cache/npm
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22.23.1"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Locked install
+        run: npm ci --no-audit --no-fund
+      - name: Format
+        run: npm run format:check
+      - name: Strict types
+        run: npm run typecheck
+      - name: Unit and scientific contracts
+        run: npm test
+      - name: Multi-seed benchmark determinism
+        run: npm run benchmark
+      - name: Bounded synthetic profile
+        run: npm run profile
+      - name: Offline Arrow range safety tests
+        run: |
+          python3 -m venv .cache/arrow
+          .cache/arrow/bin/pip install --cache-dir .cache/pip -r tools/requirements.txt
+          .cache/arrow/bin/python -m unittest discover -s tests/python
+          .cache/arrow/bin/ruff check tools/*.py tests/python
+          .cache/arrow/bin/ruff format --check tools/*.py tests/python
+      - name: Production build
+        run: npm run build
+      - name: Install managed Chromium
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Production browser workflow
+        run: npm run test:browser
+      - name: Retain bounded review evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: phase-2-evidence
+          retention-days: 7
+          if-no-files-found: warn
+          path: |
+            artifacts/phase2/benchmark.json
+            artifacts/phase2/benchmark.md
+            artifacts/phase2/profile-ci.json
+            artifacts/browser-results.json
+            artifacts/browser-console.json
+            artifacts/browser-runs/
+            artifacts/desktop-*.png
+            artifacts/mobile.png
+            artifacts/provenance.png

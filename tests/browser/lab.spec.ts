@@ -33,6 +33,14 @@ test("complete local scientific workflow, export and deterministic replay", asyn
     page.getByText("Not MaleCNS. No measured anatomy."),
   ).toBeVisible();
   await expect(page.getByTestId("spike-count")).toHaveText("0");
+  await page.getByRole("tab", { name: /Biological/ }).focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("tab", { name: /Adaptive/ })).toBeFocused();
+  await page.keyboard.press("Home");
+  await expect(page.getByRole("tab", { name: /Biological/ })).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
   await page.screenshot({
     path: "artifacts/desktop-initial.png",
     fullPage: true,

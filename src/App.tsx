@@ -254,11 +254,36 @@ export function App() {
         <div className="lab-layout">
           <section className="instrument" aria-label="Terrarium instrument">
             <div className="modebar">
-              <div className="tabs" role="tablist" aria-label="Specimen mode">
+              <div
+                className="tabs"
+                role="tablist"
+                aria-label="Specimen mode"
+                onKeyDown={(event) => {
+                  let next = MODES.indexOf(mode);
+                  if (event.key === "ArrowRight")
+                    next = (next + 1) % MODES.length;
+                  else if (event.key === "ArrowLeft")
+                    next = (next + MODES.length - 1) % MODES.length;
+                  else if (event.key === "Home") next = 0;
+                  else if (event.key === "End") next = MODES.length - 1;
+                  else return;
+                  event.preventDefault();
+                  setMode(MODES[next]);
+                  event.currentTarget
+                    .querySelector<HTMLButtonElement>(
+                      '[data-mode="' + MODES[next] + '"]',
+                    )
+                    ?.focus();
+                }}
+              >
                 {MODES.map((m, i) => (
                   <button
                     key={m}
                     role="tab"
+                    id={"tab-" + m}
+                    data-mode={m}
+                    tabIndex={mode === m ? 0 : -1}
+                    aria-controls="specimen-panel"
                     aria-selected={mode === m}
                     className={mode === m ? "active" : ""}
                     style={{ "--mode-color": COLORS[m] } as React.CSSProperties}
@@ -279,7 +304,12 @@ export function App() {
                 Overlay all
               </label>
             </div>
-            <div className="stage">
+            <div
+              className="stage"
+              id="specimen-panel"
+              role="tabpanel"
+              aria-labelledby={"tab-" + mode}
+            >
               <Scene
                 frame={frame}
                 mode={mode}
@@ -560,7 +590,7 @@ export function App() {
             </section>
             <section className="learning">
               <div className="panel-heading">
-                <h2>Adaptive calibration</h2>
+                <h2>Illustrative calibration</h2>
                 <button
                   className="info"
                   aria-label="Inspect learning"
@@ -569,7 +599,11 @@ export function App() {
                   ⓘ
                 </button>
               </div>
-              <p>Can a fixed reservoir decode light direction?</p>
+              <p>Single-run illustration: decode light direction.</p>
+              <p className="micro">
+                Primary evidence: the 20-seed delayed-cue study in the README.
+                Neither result establishes biological fidelity.
+              </p>
               <button
                 className="train-button"
                 disabled={!!training || trainingBusy || !ready}
@@ -633,7 +667,7 @@ export function App() {
         <section className="experiment-strip">
           <div className="strip-title">
             <h2>Experiment ledger</h2>
-            <span>DETERMINISTIC / LOCAL-FIRST</span>
+            <span>DETERMINISTIC / LOCAL-FIRST · ACTIVE SEED {activeSeed}</span>
           </div>
           <div className="seed-control">
             <label htmlFor="seed">Seed</label>
