@@ -112,7 +112,7 @@ Review artifacts are intentionally ignored under **artifacts/**:
 - browser-console.json: console errors, warnings, external-request log and calibration evidence
 - browser-results.json and browser-runs/: machine-readable test result and failure traces
 
-The code commit and dirty-state marker are embedded at build time. Build from a clean commit for release-quality provenance. Raw browser-run artifacts are ignored; one optimized screenshot is committed under docs/assets for review. See docs/PHASE2_VERIFICATION.md for this phase’s exact gate status and docs/VERIFICATION.md for the historical Milestone 1 review.
+The code commit and dirty-state marker are embedded at build time. Build from a clean commit for release-quality provenance. Raw browser-run artifacts are ignored; one optimized screenshot is committed under docs/assets for review. See [docs/VISUAL_PASS.md](docs/VISUAL_PASS.md) for the latest visual pass and remaining review gate, docs/PHASE2_VERIFICATION.md for the scientific checkpoint, and docs/VERIFICATION.md for historical Milestone 1 review.
 
 ## Attribution and licence
 
