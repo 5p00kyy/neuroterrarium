@@ -28,7 +28,7 @@ A delayed-cue cross-context benchmark evaluates 20 independently shuffled matche
 **The full fixture and shuffled graphs are nearly tied, and removing recurrence is slightly better here.** This validates a reproducible method, not a biological topology advantage or a closed-loop navigation learner. The in-app calibration is only an illustration. [Protocol, per-seed export and interpretation](docs/BENCHMARK.md).
 
 - **Verified official import:** 159 bodies, 128 pairs, 105,268 raw synapses, from 3.69 MB of anonymous official range reads. Counts, transmitter fields and checksums independently verified offline. Not a complete circuit and not loaded into the app. [Ingestion evidence](docs/INGESTION.md).
-- **Measured synthetic scale:** 166,700 neurons / 5,334,400 edges, 61.75 instrumented CPU ticks/s in the baseline (55.23 with CPU sampling) on the measured Xeon host. Not MaleCNS and not a browser/end-to-end benchmark. [Profile method and limits](docs/PERFORMANCE.md).
+- **Measured synthetic scale:** 166,700 neurons / 5,334,400 edges, 56.31 instrumented CPU ticks/s in the clean final run on the measured Xeon host. Not MaleCNS and not a browser/end-to-end benchmark. [Profile method and limits](docs/PERFORMANCE.md).
 - **CI:** pinned read-only GitHub Actions workflow, local or managed Chromium, bounded scientific tests and retained evidence. No deployment. [Contributing](CONTRIBUTING.md).
 
 ## Run locally

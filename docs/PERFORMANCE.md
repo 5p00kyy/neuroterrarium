@@ -12,6 +12,10 @@ Measured on Node v22.23.1, Intel Xeon E5-2680 v4 @ 2.40 GHz, in the project cont
 
 The heavy baseline advances 0.618 simulated seconds per wall second at the nominal 100 Hz, so **it does not reach real time**. It is not a 166,700-neuron browser benchmark or a MaleCNS run. These initial observations came from uncommitted Phase 2 code based on `473d4d5`; that earlier profile wrapper recorded only the parent commit. The final profiler records both commit and dirty state. The final verification report identifies clean reruns separately.
 
+## Clean final rerun
+
+Clean implementation `732d252bcc75a0e4741f1364d46e906a8750751f` produced 3,437.19 ticks/s for the bounded workload (29.094 ms / 100 ticks) and **56.31 ticks/s** for the heavy workload (3,552.039 ms / 200 ticks). Heavy generation took 122.119 ms, typed-array bytes remained 46,342,604, RSS was 137,912,320 bytes, and all deterministic activity/traversal counts matched the baseline. This observed run is below 100 Hz as well. Initial runs above remain preserved rather than replaced with the best timing.
+
 ## Reproduction and scope
 
 `npm run profile` runs the CI-bounded workload. `npm run profile:heavy` explicitly opts into the larger synthetic graph. Both use seed 4102, degree 16 or 32, a deterministic loop-free CSR generator and the same CPU LIF implementation as the miniature. Each performs five warmup ticks and then measures a new neural state. Graph generation is measured separately. Timing includes LIF stepping and extra scans to count active neurons/traversed edges; it excludes browser rendering, worker transfer, import, event recording and graph shuffling.

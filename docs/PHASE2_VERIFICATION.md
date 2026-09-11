@@ -1,13 +1,68 @@
 # Phase 2 verification
 
-Final clean-commit verification is in progress. Scientific results and limitations are recorded in [BENCHMARK.md](BENCHMARK.md), [INGESTION.md](INGESTION.md), and [PERFORMANCE.md](PERFORMANCE.md).
+Date: 2026-09-11, Australia/Brisbane. **Local implementation and automated verification passed. Direct review of the fresh screenshots and hosted CI remain open acceptance gates.** Nothing was pushed or deployed.
 
-## Acceptance boundaries
+## Exact implementation revisions
 
-- Fresh desktop, provenance and compact screenshots were captured by passing browser workflows. Direct Phase 2 image inspection is blocked in the worker: the image tool rejects the repository path as outside its allowed media directory. No files were staged outside the authorized project boundary. Prior Milestone 1 visual acceptance does not establish acceptance of new captures.
-- Hosted CI has not run for these unpushed commits. Local managed-browser validation is not a hosted CI result.
-- The browser remains synthetic. The official 159-body import is a selected data-validation sample, not a validated circuit or a running biological model.
-- Synthetic 166,700-neuron profiling excludes browser transfer/rendering and does not reach 100 Hz.
-- Vite retains its main-bundle size warning.
+- `7314da5403609f85f20ffeee7c0b4807631baec7`: matched multi-seed benchmark, streamed bounded MaleCNS import, synthetic CPU profiles and contract tests.
+- `732d252bcc75a0e4741f1364d46e906a8750751f`: instrument labels and keyboard tabs, active seed, README evidence, screenshot and pinned CI workflow.
 
-The final evidence record will identify the clean implementation commit and completed checks, rather than relabelling prior dirty-state measurements.
+The full fresh verification ran against clean **732d252bcc75a0e4741f1364d46e906a8750751f**. Both browser recordings, benchmark, final profiles and re-imported artifact carry that commit and `dirty: false`. This report and the final clean-run presentation image are a subsequent documentation-only change; the tested bundle is not relabelled.
+
+## Completed gates
+
+Environment: Node v22.23.1, npm 10.9.8, Debian 13, Xeon E5-2680 v4 @ 2.40 GHz. System Chromium 150.0.7871.114 and Playwright 1.55.0 managed Chromium were tested separately. Browsers used headless software WebGL and loopback production preview.
+
+| Gate                           | Observed result                                                                                           |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Fresh locked npm install       | 179 packages in 4 seconds, exit 0                                                                         |
+| Prettier and strict TypeScript | Passed                                                                                                    |
+| Vitest                         | 34 tests across 5 files passed, 2.62 seconds                                                              |
+| Full 20-seed benchmark         | Two complete evaluations exactly identical                                                                |
+| Python HTTP-range contracts    | 6 offline tests passed                                                                                    |
+| Ruff lint and format           | Passed, 4 files                                                                                           |
+| Offline source verification    | Checksums, exact Arrow-to-CSV rows, transmitter fields, endpoint membership and independent totals passed |
+| Clean official re-import       | 159 neurons, 128 pairs, 105,268 raw synapses; `simulationReady: false`                                    |
+| Binary audit                   | All 6 array checksums match both old and new imports; neuron metadata checksum matches                    |
+| Vite production build          | Passed, 608 modules, 7.15 seconds                                                                         |
+| System Chromium                | 2/2 passed, 39.647 seconds total, no retries/skips/flaky tests                                            |
+| Managed Chromium               | 2/2 passed, 44.561 seconds total, no retries/skips/flaky tests                                            |
+| Desktop logs, each browser     | 0 console errors, 0 warnings, 0 external requests                                                         |
+| Compact layout, each browser   | 390 × 844 viewport, keyboard preset works, page width ≤390 px                                             |
+
+The desktop workflow exercises real soil raycasting, all five tools, pause/step/speed, perturbation, readout-only calibration, keyboard mode tabs, comparison, overlay, provenance, export, exact replay/import, tamper rejection and seed validation. Networking is disabled after initial load. The separate recordings contain 986 system-browser ticks and 1,826 managed-browser ticks. Interactive capture timing differs; each exported run verifies its own exact neural/body replay. This is not an assertion that two wall-clock-driven interaction sessions have identical event schedules.
+
+The build retains Vite’s unmodified chunk warning: main JS **1,122.20 kB minified / 314.95 kB gzip**, worker 14.31 kB. No warning threshold was raised.
+
+## Scientific findings
+
+The full synthetic fixture and matched shuffled graphs are nearly tied (test MSE 0.382233 versus 0.383745). Removing all graph edges is slightly better (0.371280); the Visual-L ablation is worse and zero features score 0.64. This does **not** establish a recurrent or biological topology advantage. Full protocol, all four conditions, sample SD and qualifications: [BENCHMARK.md](BENCHMARK.md). Scientific-result SHA-256: `71ecfe1fca0f74bb8c7998b89813bba69c4b97f521cfb2ff3585ced7718144fd`.
+
+Official anonymous range access succeeded, rather than an authentication blocker. The 3,685,468-byte selected extraction is a high-weight-biased import sample, not a complete circuit. No upstream anatomy is committed or runs in the browser. Licence, source selection, checksums and independently verified totals: [INGESTION.md](INGESTION.md). The final reviewed importer writes to `data/processed/malecns-phase2-final/`; the original import remains preserved. The newly added exact response Content-Range/ETag checks were verified by offline mocks, not by repeating the source download.
+
+Clean CPU measurements: 10,000 neurons / 160,000 edges at **3,437.19 ticks/s**; 166,700 neurons / 5,334,400 edges at **56.31 ticks/s**, 3,552.039 ms for 200 ticks. The latter advances only 0.563 simulated seconds per wall second at nominal 100 Hz. Heavy typed-array allocation is 46,342,604 bytes; process RSS is 137,912,320 bytes. These instrumented synthetic CPU workloads exclude rendering, worker transfer, recording and ingestion. Baseline and sampled runs, deterministic activity counts and CPU hotspot evidence: [PERFORMANCE.md](PERFORMANCE.md).
+
+## Retained evidence
+
+All paths relative to `/root/projects/neuroterrarium`:
+
+- `artifacts/phase2/final-verification.log`: completed fresh sequence, exit 0.
+- `artifacts/phase2/benchmark.json` and `benchmark.md`: per-seed result and protocol.
+- `artifacts/phase2/profile-ci.json`, `profile-heavy.json`, preserved baseline/sampled profiles and `lif-heavy.cpuprofile`.
+- `artifacts/phase2/source-verification.json`, `official-schemas.json`, `import-checksums.txt`.
+- `data/raw/malecns-bounded-v1/`: retained official ranges, source manifest and normalized CSVs, all ignored.
+- `data/processed/malecns-phase2-final/`: checksummed arrays and metadata, ignored.
+- `artifacts/desktop-initial.png`, `desktop-verified.png`, `provenance.png`, `mobile.png`: latest managed-browser captures.
+- `artifacts/deterministic-run.json`, `browser-console.json`, `browser-results.json`: latest managed-browser run.
+- `artifacts/phase2/system-browser/`: separately retained system-browser screenshots, logs and recording.
+- `artifacts/phase2/SHA256SUMS`: final artifact identities.
+- `docs/assets/terrarium.webp`: lossless optimized presentation copy of the latest verified-workflow screenshot, pending direct visual review.
+
+## Remaining acceptance gates and limits
+
+1. **Direct Phase 2 visual inspection is blocked in this worker.** The image tool rejects the project path as outside its allowed media directory. No files were staged outside the authorized repository. Prior Milestone 1 visual acceptance does not validate these fresh captures. Main-seat review needs an authorized image surface. No claim of visual polish acceptance is made.
+2. **Hosted CI has not run for these unpushed commits.** Its pinned action references resolve upstream and both local Chromium paths passed, but the disposable Ubuntu runner is untested here.
+3. **Real biological simulation and full end-to-end scale remain deferred.** Imported anatomy is not a validated circuit, and synthetic large-network stepping does not measure browser throughput. There is no WebGPU backend, closed-loop learning claim or topology-advantage claim.
+4. The main bundle remains above the default size warning.
+
+No full-connectome download, credentials, deployment or persistent infrastructure was added. Final preview-port cleanup is recorded with the artifact audit.
