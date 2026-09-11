@@ -1,4 +1,6 @@
-# MaleCNS v1.0: verified bounded import, not a live brain model
+# MaleCNS v1.0: Phase 2 bounded import evidence
+
+Historical Phase 2 contract below. [Phase 3](PHASE3.md) adds a separately validated real circuit through successful anonymous neuPrint queries, while preserving this importer and its stricter prediction-confidence policy.
 
 ## Authoritative access finding (2026-09-11)
 

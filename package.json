@@ -13,6 +13,9 @@
     "format": "prettier --write src tests tools/*.ts *.ts package.json tsconfig.json index.html README.md CONTRIBUTING.md docs .github/workflows",
     "format:check": "prettier --check src tests tools/*.ts *.ts package.json tsconfig.json index.html README.md CONTRIBUTING.md docs .github/workflows",
     "benchmark": "tsx tools/run-benchmark.ts --verify",
+    "circuit:compile": "tsx tools/compile-circuit.ts",
+    "circuit:verify": "tsx tools/compile-circuit.ts --verify",
+    "circuit:smoke": "tsx tools/run-circuit.ts",
     "profile": "tsx tools/profile.ts",
     "profile:heavy": "tsx tools/profile.ts --heavy",
     "import:connectome": "tsx tools/import-connectome.ts"

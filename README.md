@@ -8,7 +8,13 @@ The CI badge links the workflow, not an asserted passing hosted run. Hosted CI r
 
 Milestone 1 connects stimulus → spiking network → motor output → procedural fly movement in a local 3D terrarium. It is a scientific-instrument vertical slice, not a biological fidelity result.
 
-> **Synthetic fixture, not MaleCNS.** All 48 neurons, 192 signed edges, six populations, LIF constants and sensor/motor mappings are demo-only. No real connectome runs in the browser. Phase 2 separately verified a tiny official MaleCNS import under ignored local data paths; no upstream raw data are bundled in Git.
+> **Two separate instruments.** The default 48-neuron terrarium is synthetic, not MaleCNS. The dataset selector also opens a real **51-body giant-fiber input microcircuit**, with **1,240 measured directed pairs and 28,373 contacts**. Its topology executes only after validation; signs are inferred and dynamics/current mappings remain demo-only. It never drives the fly body. Small CC-BY source responses, exact queries and checksums are bundled. [Phase 3 authority, contracts and limitations](docs/PHASE3.md).
+
+## Phase 3: inspect real wiring, without inventing behavior
+
+Select **MaleCNS v1.0 · GF input microcircuit**. Explore brain/VNC region membership, ranked cell-type routes and individual body IDs. Run a bounded pulse experiment against five matched controls and five ablations, inspect provenance, then export and verify replay. No full CNS or measured morphology is rendered.
+
+**Negative result:** Biological and all five rewired controls produce the same response to the default pulse. No topology advantage or behavioral fidelity is established. Six glutamatergic bodies and 417,398 outgoing boundary contacts are explicitly omitted. [Scientific result](docs/PHASE3.md) · [verification evidence](docs/PHASE3_VERIFICATION.md).
 
 ![NeuroTerrarium instrument showing the synthetic miniature fixture and provenance-conscious comparison](docs/assets/terrarium.webp)
 
@@ -66,7 +72,7 @@ Both servers bind to loopback. Stop with Ctrl+C. No persistent infrastructure is
 
 Pause, 10 ms single-step, 0.25×/1×/2×/4× pacing, integer seeds and reset are available. Recording is capped at 300 simulated seconds and 2,000 events to keep this fixture-scale implementation bounded.
 
-## What each mode means
+## What each terrarium mode means
 
 | Mode       | Recurrent graph                                 | Trainable parameters             | Body                                            |
 | ---------- | ----------------------------------------------- | -------------------------------- | ----------------------------------------------- |
@@ -95,6 +101,8 @@ npm run typecheck
 npm test
 npm run format:check
 npm run benchmark
+npm run circuit:verify
+npm run circuit:smoke
 npm run profile
 npm run build
 npm run test:browser

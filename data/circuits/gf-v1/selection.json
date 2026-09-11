@@ -1,0 +1,99 @@
+{
+  "schema": "neuroterrarium-selection/1",
+  "anchorType": "DNp01",
+  "anchorIds": [
+    "10001",
+    "10010"
+  ],
+  "minimumAnchorContacts": 100,
+  "allowedConsensusNt": [
+    "acetylcholine",
+    "gaba"
+  ],
+  "ids": [
+    "10001",
+    "10010",
+    "10091",
+    "10106",
+    "10147",
+    "10173",
+    "10246",
+    "10263",
+    "10283",
+    "10297",
+    "10315",
+    "10417",
+    "10570",
+    "10580",
+    "10689",
+    "10780",
+    "10797",
+    "10992",
+    "11133",
+    "11205",
+    "11272",
+    "11361",
+    "11391",
+    "11572",
+    "11677",
+    "11826",
+    "11832",
+    "11927",
+    "12041",
+    "12129",
+    "12215",
+    "12275",
+    "12628",
+    "13114",
+    "13274",
+    "15665",
+    "15791",
+    "16445",
+    "16482",
+    "16931",
+    "17375",
+    "17404",
+    "25438",
+    "511752",
+    "513904",
+    "519389",
+    "523643",
+    "523921",
+    "527699",
+    "529031",
+    "534038"
+  ],
+  "excluded": [
+    {
+      "bodyId": "10074",
+      "nt": "glutamate",
+      "contacts": 414
+    },
+    {
+      "bodyId": "531985",
+      "nt": "glutamate",
+      "contacts": 297
+    },
+    {
+      "bodyId": "532569",
+      "nt": "glutamate",
+      "contacts": 158
+    },
+    {
+      "bodyId": "17144",
+      "nt": "glutamate",
+      "contacts": 151
+    },
+    {
+      "bodyId": "555227",
+      "nt": "glutamate",
+      "contacts": 128
+    },
+    {
+      "bodyId": "527704",
+      "nt": "glutamate",
+      "contacts": 112
+    }
+  ],
+  "rationale": "Bilateral giant-fiber descending neurons and every direct upstream neuron with at least 100 contacts to either anchor and an ACh/GABA consensus. Induce every directed edge among retained bodies without an internal weight threshold. A GF-centered input microcircuit, not a complete escape circuit or sensory-to-motor model."
+}

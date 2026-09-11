@@ -1,0 +1,9 @@
+{
+  "url": "https://neuprint.janelia.org/api/custom/custom",
+  "dataset": "male-cns:v1.0",
+  "query": "MATCH (a:Neuron) WHERE a.bodyId IN [10001,10010] RETURN properties(a) AS neuron LIMIT 3",
+  "requestSha256": "0c234bb4913052e21160e8472239d6fcccd0021374d742cd41458351f19a2e78",
+  "responseSha256": "4694da24db867813805e5f05ef08245d2fb7af5fdc390bc220ac162005e50b6f",
+  "bytes": 7163,
+  "rows": 2
+}

@@ -1,0 +1,9 @@
+{
+  "url": "https://neuprint.janelia.org/api/custom/custom",
+  "dataset": "male-cns:v1.0",
+  "query": "MATCH (a:Neuron)-[e:ConnectsTo]->(b:Neuron) WHERE b.bodyId IN [10001,10010] AND e.weight >= 100 RETURN toString(a.bodyId) AS pre, a.type AS preType, a.instance AS preInstance, a.consensusNt AS preNt, toString(b.bodyId) AS post, b.type AS postType, e.weight AS weight ORDER BY weight DESC LIMIT 257",
+  "requestSha256": "e0c04dc31fcefeb45a29e4425b006fc92209b90df847e1082ed279ab364fa5f3",
+  "responseSha256": "d5fbf2f158fcf0309bfc2ccc00638f35f18980b49dc618e088957c13c93771ae",
+  "bytes": 4491,
+  "rows": 63
+}

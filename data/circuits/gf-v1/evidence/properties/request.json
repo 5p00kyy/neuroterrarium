@@ -1,0 +1,1 @@
+{"dataset": "male-cns:v1.0", "cypher": "MATCH (a:Neuron) WHERE a.bodyId IN [10001,10010] RETURN properties(a) AS neuron LIMIT 3"}

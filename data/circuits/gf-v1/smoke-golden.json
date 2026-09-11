@@ -1,0 +1,149 @@
+{
+  "schema": "neuroterrarium-smoke-summary/1",
+  "circuit": "malecns-gf-input-v1",
+  "seed": 42,
+  "protocol": {
+    "version": "circuit-pulse-1",
+    "ticks": 120,
+    "pulseTicks": 20,
+    "current": 0.65,
+    "controlSeeds": [
+      17,
+      43,
+      89,
+      131,
+      211
+    ],
+    "readout": "mean trace, adaptive scalar gain fitted on first 40 ticks to imposed pulse; not behavior"
+  },
+  "rows": [
+    {
+      "name": "Biological",
+      "fingerprint": "5bfbe263",
+      "changedTargets": 0,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "Adaptive",
+      "fingerprint": "5bfbe263",
+      "changedTargets": 0,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.000003815974289078241
+    },
+    {
+      "name": "Control 17",
+      "fingerprint": "313f7143",
+      "changedTargets": 533,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "Control 43",
+      "fingerprint": "b3ba0333",
+      "changedTargets": 553,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "Control 89",
+      "fingerprint": "e94a30c3",
+      "changedTargets": 502,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "Control 131",
+      "fingerprint": "c3cd9ae3",
+      "changedTargets": 520,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "Control 211",
+      "fingerprint": "8dd32313",
+      "changedTargets": 561,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "No recurrence",
+      "fingerprint": "3ad1bc07",
+      "changedTargets": 0,
+      "spikes": 10,
+      "anchorSpikes": 0,
+      "spikeSha256": "f2baca5f16e0719d573c0abb5039d656f257414fa60bcd4f1cb12de5eae951d4",
+      "finalTrace": 0.0000018170883812868566,
+      "finalOutput": 0.0000018170883812868566
+    },
+    {
+      "name": "Population permuted",
+      "fingerprint": "b810d5eb",
+      "changedTargets": 0,
+      "spikes": 10,
+      "anchorSpikes": 0,
+      "spikeSha256": "6230a1d83391f7bb0e6df09b346a0cc5d2ec2c2a24f852e415f5ca7092a401c1",
+      "finalTrace": 0.0000018170883812868566,
+      "finalOutput": 0.0000018170883812868566
+    },
+    {
+      "name": "All excitatory",
+      "fingerprint": "9dc8db31",
+      "changedTargets": 0,
+      "spikes": 20,
+      "anchorSpikes": 10,
+      "spikeSha256": "ec7c50bc7280199a8ea52e3c4352617dee9e62cab08d00459df4961175929dd9",
+      "finalTrace": 0.0000037921844541058673,
+      "finalOutput": 0.0000037921844541058673
+    },
+    {
+      "name": "Unit contact weights",
+      "fingerprint": "37e535a7",
+      "changedTargets": 0,
+      "spikes": 10,
+      "anchorSpikes": 0,
+      "spikeSha256": "f2baca5f16e0719d573c0abb5039d656f257414fa60bcd4f1cb12de5eae951d4",
+      "finalTrace": 0.0000018170883812868566,
+      "finalOutput": 0.0000018170883812868566
+    },
+    {
+      "name": "Stimulated population silenced",
+      "fingerprint": "5bfbe263",
+      "changedTargets": 0,
+      "spikes": 0,
+      "anchorSpikes": 0,
+      "spikeSha256": "24f08a0ef512c3d96b57bd555e1e6274eb096f131228b5603d428d3c2595c0e9",
+      "finalTrace": 0,
+      "finalOutput": 0
+    }
+  ],
+  "readout": {
+    "before": 1,
+    "after": 1.006273385501229,
+    "trainTicks": 40
+  },
+  "recurrentBefore": "5bfbe263",
+  "recurrentAfter": "5bfbe263",
+  "claim": "Smoke only. No topology advantage or behavior established."
+}

@@ -1,8 +1,10 @@
-# Scientific contract, Milestone 1
+# Scientific contract, synthetic terrarium
+
+This document describes the retained nt-mini instrument. The separate measured circuit has its own [Phase 3 scientific contract](PHASE3.md); no real circuit drives this body.
 
 ## What is actually running
 
-**nt-mini v1 is synthetic.** Its 48 neurons, six populations, 192 directed edges, signs and strengths are original demo fixtures. Neither Biological mode nor its UI name means measured anatomy is present. The app explicitly labels Biological as fixed demo topology. No MaleCNS or FlyWire rows are bundled.
+**nt-mini v1 is synthetic.** Its 48 neurons, six populations, 192 directed edges, signs and strengths are original demo fixtures. Neither Biological mode nor its UI name means measured anatomy is present. The app explicitly labels Biological as fixed demo topology. No MaleCNS or FlyWire rows are used in this terrarium. The separate Phase 3 instrument bundles a small MaleCNS circuit.
 
 The LIF family is motivated by published work, but this implementation is original and its constants are invented. Current and voltage are dimensionless, a tick is nominally 10 ms, and body distance is in arbitrary arena units. These units cannot be interpreted as experimental fly physiology.
 

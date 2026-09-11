@@ -1,0 +1,1 @@
+{"dataset": "male-cns:v1.0", "cypher": "MATCH (a:Neuron)-[e:ConnectsTo]->(b:Neuron) WHERE a.bodyId IN [10001,10010] AND e.weight >= 100 RETURN toString(a.bodyId) AS pre, a.type AS preType, toString(b.bodyId) AS post, b.type AS postType, b.instance AS postInstance, b.consensusNt AS postNt, e.weight AS weight ORDER BY weight DESC LIMIT 257"}

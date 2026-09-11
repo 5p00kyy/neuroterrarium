@@ -1,0 +1,361 @@
+.dataset-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.dataset-selector label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+}
+.dataset-selector select {
+  min-width: 290px;
+}
+.circuit-lab p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 13px;
+}
+.circuit-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin: 32px 0 22px;
+}
+.circuit-heading h1 {
+  font-size: 34px;
+  max-width: 700px;
+  margin: 12px 0;
+}
+.measured-chip {
+  border: 1px solid #53746b;
+  background: #172821;
+  color: #b6d9c7;
+  padding: 16px;
+  font-size: 11px;
+  line-height: 2;
+  white-space: nowrap;
+}
+.measured-chip strong {
+  font-size: 16px;
+}
+.circuit-contract {
+  border-left: 3px solid #adc697;
+  background: #1c261f;
+  padding: 17px 21px;
+  color: #b4c2ad;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.circuit-contract strong {
+  color: #e2e6dc;
+}
+.circuit-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 23px 0;
+  border-bottom: 1px solid var(--line);
+}
+.scale-buttons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.scale-buttons button[aria-pressed="true"] {
+  background: #b9d295;
+  color: #182019;
+  border-color: #b9d295;
+}
+.circuit-lab label {
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.circuit-lab select {
+  max-width: 100%;
+  width: 100%;
+}
+.region-overview,
+.neuron-view {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 35px;
+  min-height: 435px;
+  padding: 30px 0;
+}
+.region-diagram {
+  align-self: center;
+  text-align: center;
+}
+.region-diagram svg {
+  width: 100%;
+  max-height: 340px;
+}
+.region-diagram path {
+  fill: #253229;
+  stroke: #74836b;
+  stroke-width: 1.5;
+}
+.region-diagram circle {
+  fill: #dfcb98;
+}
+.region-diagram .descending-route {
+  fill: none;
+  stroke: #d0ba82;
+  stroke-width: 3;
+}
+.circuit-lab svg text {
+  fill: #a9b69f;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.region-diagram text {
+  text-anchor: middle;
+}
+.circuit-lab small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.region-cards {
+  display: grid;
+  gap: 10px;
+}
+.region-cards button {
+  text-align: left;
+  display: grid;
+  gap: 9px;
+  background: #18201a;
+  white-space: normal;
+  padding: 15px 20px;
+}
+.region-cards button strong {
+  font-size: 28px;
+  font-weight: 400;
+  color: #c0d99b;
+}
+.region-cards button span {
+  font-size: 12px;
+}
+.region-cards p {
+  margin: 3px 0;
+}
+.route-view {
+  padding: 25px 0;
+}
+.route-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+  max-height: 480px;
+  overflow: auto;
+}
+.route-list button {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  gap: 12px;
+  padding: 15px;
+  overflow: hidden;
+  background: #172019;
+}
+.route-list button > span:first-child,
+.route-list strong {
+  position: relative;
+  z-index: 1;
+}
+.route-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: #769965;
+  opacity: 0.8;
+}
+.route-list i {
+  font-style: normal;
+  color: #829675;
+}
+.route-list strong {
+  font-weight: 400;
+}
+.neuron-map {
+  background: radial-gradient(ellipse, #23302655, transparent 65%);
+  border: 1px solid var(--line);
+}
+.neuron-map svg {
+  width: 100%;
+  display: block;
+}
+.neuron-inspector {
+  padding: 20px;
+  background: #18201a;
+  border: 1px solid var(--line);
+}
+.circuit-lab h2 {
+  font-size: 23px;
+  font-weight: 400;
+}
+.circuit-lab h3 {
+  font-size: 13px;
+  color: #b9cba9;
+}
+.circuit-lab dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px 15px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.circuit-lab dt {
+  color: var(--muted);
+}
+.circuit-lab dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.neuron-inspector ul {
+  list-style: none;
+  padding: 0;
+  font-size: 12px;
+}
+.neuron-inspector li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+  color: #9fab98;
+}
+.circuit-provenance {
+  padding: 25px 0;
+  max-width: 950px;
+  min-height: 440px;
+}
+.circuit-provenance code {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  color: #a8c496;
+}
+.circuit-experiment {
+  border-top: 1px solid var(--line);
+  padding: 30px 0;
+}
+.circuit-actions {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.circuit-actions label {
+  min-width: 210px;
+}
+.circuit-status {
+  border-left: 2px solid #799466;
+  padding-left: 12px;
+}
+.smoke-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin: 22px 0;
+}
+.smoke-results table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+.smoke-results td,
+.smoke-results th {
+  padding: 9px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+.smoke-results td:first-child,
+.smoke-results th:first-child {
+  text-align: left;
+}
+.smoke-results th {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+.smoke-results svg {
+  width: 100%;
+  background: #172019;
+  border: 1px solid var(--line);
+}
+@media (max-width: 700px) {
+  .dataset-selector,
+  .dataset-selector label {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dataset-selector select {
+    min-width: 0;
+    width: 100%;
+    font-size: 12px;
+  }
+  .circuit-heading {
+    display: block;
+    margin-top: 23px;
+  }
+  .circuit-heading h1 {
+    font-size: 29px;
+  }
+  .measured-chip {
+    display: block;
+    margin-top: 18px;
+  }
+  .circuit-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .scale-buttons button {
+    padding: 10px;
+    font-size: 11px;
+  }
+  .region-overview,
+  .neuron-view,
+  .smoke-results {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .route-list {
+    grid-template-columns: 1fr;
+  }
+  .route-list button {
+    font-size: 11px;
+  }
+  .circuit-lab dl {
+    grid-template-columns: 110px 1fr;
+  }
+  .circuit-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .circuit-actions label {
+    grid-column: 1/-1;
+  }
+  .circuit-actions button {
+    white-space: normal;
+    min-height: 40px;
+  }
+  .neuron-inspector {
+    padding: 14px;
+  }
+}

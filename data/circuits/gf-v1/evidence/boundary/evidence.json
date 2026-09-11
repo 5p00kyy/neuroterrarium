@@ -1,0 +1,9 @@
+{
+  "url": "https://neuprint.janelia.org/api/custom/custom",
+  "dataset": "male-cns:v1.0",
+  "query": "MATCH (a:Neuron)-[e:ConnectsTo]->(b:Segment) WHERE a.bodyId IN [10001,10010,10091,10106,10147,10173,10246,10263,10283,10297,10315,10417,10570,10580,10689,10780,10797,10992,11133,11205,11272,11361,11391,11572,11677,11826,11832,11927,12041,12129,12215,12275,12628,13114,13274,15665,15791,16445,16482,16931,17375,17404,25438,511752,513904,519389,523643,523921,527699,529031,534038] RETURN toString(a.bodyId) AS bodyId, toString(sum(e.weight)) AS outgoingContacts, count(e) AS outgoingPairs LIMIT 257",
+  "requestSha256": "77315e2e4a3618c33a49cd9c98d837f32465e6a23b42f3efdcfbf517c80d43c5",
+  "responseSha256": "a30e7ade05a8558947a74bcbffe74de290e2fd75a8eb795d3c38256e6289f97f",
+  "bytes": 1749,
+  "rows": 51
+}
