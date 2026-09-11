@@ -10,8 +10,12 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test:browser": "playwright test",
-    "format": "prettier --write src tests *.ts package.json tsconfig.json index.html README.md docs",
-    "format:check": "prettier --check src tests *.ts package.json tsconfig.json index.html README.md docs"
+    "format": "prettier --write src tests tools/*.ts *.ts package.json tsconfig.json index.html README.md CONTRIBUTING.md docs .github/workflows",
+    "format:check": "prettier --check src tests tools/*.ts *.ts package.json tsconfig.json index.html README.md CONTRIBUTING.md docs .github/workflows",
+    "benchmark": "tsx tools/run-benchmark.ts --verify",
+    "profile": "tsx tools/profile.ts",
+    "profile:heavy": "tsx tools/profile.ts --heavy",
+    "import:connectome": "tsx tools/import-connectome.ts"
   },
   "dependencies": {
     "@react-three/drei": "10.7.0",
@@ -27,7 +31,9 @@
     "@types/react-dom": "19.1.0",
     "@types/three": "0.180.0",
     "@vitejs/plugin-react": "5.0.0",
+    "csv-parse": "6.1.0",
     "prettier": "3.6.2",
+    "tsx": "4.20.5",
     "typescript": "5.9.2",
     "vite": "7.1.0",
     "vitest": "3.2.0"

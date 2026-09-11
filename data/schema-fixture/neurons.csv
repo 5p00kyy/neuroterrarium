@@ -1,0 +1,4 @@
+body,cell_type,predicted_nt,predicted_nt_confidence
+9007199254740993,"Synthetic A, left",acetylcholine,0.95
+9007199254740994,Synthetic B,gaba,0.9
+9007199254740995,Synthetic C,acetylcholine,0.99

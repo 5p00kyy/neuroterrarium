@@ -1,0 +1,33 @@
+{
+  "schema": "neuroterrarium-import/1",
+  "anatomy": "synthetic",
+  "dataset": {
+    "id": "nt-import-schema-fixture",
+    "version": "1"
+  },
+  "license": "MIT",
+  "attribution": "NeuroTerrarium contributors; invented rows, not MaleCNS anatomy.",
+  "sourceUrls": [
+    "local:synthetic-schema-fixture"
+  ],
+  "selection": "Three invented neuron IDs above JavaScript safe integer range; three rows including one duplicate pair.",
+  "signPolicy": "ach-gaba-prediction-v1",
+  "minimumConfidence": 0.8,
+  "gain": 0.01,
+  "files": {
+    "neurons": {
+      "path": "neurons.csv",
+      "sha256": "bbf287c9891a6334339a3732004853eee258ce024b730c0a1daffab69a3608a3"
+    },
+    "edges": {
+      "path": "edges.csv",
+      "sha256": "1b03dd3eb5739b5e6e8044b3efd845ec21ef54df3d9f567ad8501c03e96a2005"
+    }
+  },
+  "expected": {
+    "neurons": 3,
+    "rows": 3,
+    "uniqueEdges": 2,
+    "rawSynapses": "12"
+  }
+}
